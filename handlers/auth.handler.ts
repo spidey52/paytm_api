@@ -1,18 +1,16 @@
 import { Request, Response } from "express";
+import myenv from "../config/myenv";
 import PaytmHelpers from "../utils/helpers";
 
 // const apiKey = "";
 // const apiSecretKey = "";
 
-const apiKey = process.env.API_KEY || "";
-const apiSecretKey = process.env.API_SECRET_KEY || "";
-// const apiKey = "75fb266ed75e40a4872e64377cf39d82";
-// const apiSecretKey = "7fcb9998925a4a15a8349968f50ce027";
+const apiKey = myenv.API_KEY;
+const apiSecretKey = myenv.API_SECRET_KEY;
 
 const getLoginUrl = async (req: Request, res: Response) => {
- //  const apiAccessData = await PaytmHelpers.getApiAccessData();
-
- //  const apiKey = apiAccessData.api_key;
+ console.log(apiKey, "apiKey");
+ console.log(apiSecretKey, "apiSecretKey");
 
  const url = `https://login.paytmmoney.com/merchant-login?apiKey=${apiKey}&state=${"value"}`;
 
